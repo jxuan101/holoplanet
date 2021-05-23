@@ -1,0 +1,35 @@
+.navbar {
+    bottom: 0;
+    height: 40px;
+    width: 100vw;
+    position: sticky;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+}
+
+.navlink {
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.navlink:hover {
+    box-shadow: 0 4px 1px -1px rgb(0, 183, 255);
+}
+
+.navicon {
+    height: 30px;
+    width: 30px;
+    color: white;
+}
