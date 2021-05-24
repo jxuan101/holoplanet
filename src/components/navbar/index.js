@@ -1,92 +1,51 @@
-import { React, useState } from 'react';
+import { React, useState, useRef } from 'react';
 import './index.css';
 import { Link } from 'react-router-dom';
-import { FaHome, FaFilm, FaBroadcastTower, FaCog } from 'react-icons/fa';
+import { FaHome, FaFilm, FaBroadcastTower, FaCog, FaBars, FaTimes } from 'react-icons/fa';
+import { CSSTransition } from 'react-transition-group';
 
 export default function Navbar() {
-    const [homeActive, setHomeActive] = useState(true);
-    const [videosActive, setVideosActive] = useState(false);
-    const [liveActive, setLiveActive] = useState(false);
-    const [settingsActive, setSettingsActive] = useState(false);
+    const [clicked, setClicked] = useState(true);
+    const [showBar, setShowBar] = useState(true);
 
-    const changeActive = (active) => {
-        if (active === 'home') {
-            setHomeActive (true);
-            setVideosActive (false);
-            setLiveActive (false);
-            setSettingsActive (false);
-        }
-        else if (active === 'videos') {
-            setHomeActive (false);
-            setVideosActive (true);
-            setLiveActive (false);
-            setSettingsActive (false);
-        }
-        else if (active === 'live') {
-            setHomeActive (false);
-            setVideosActive (false);
-            setLiveActive (true);
-            setSettingsActive (false);
-        }
-        else {
-            setHomeActive (false);
-            setVideosActive (false);
-            setLiveActive (false);
-            setSettingsActive (true);
-        }
-        return;
-    }
+    const nodeRef = useRef(null);
 
     return (
-        <nav className = 'navbar' >
-            <Link to = '/' className = 'navlink' onClick = {() => changeActive('home') }>
-                { 
-                    homeActive ? 
-                    <div>
-                        <FaHome className = 'navicon'/> 
+        <div className = 'navbar-container'>
+            {!clicked &&
+                <div className = 'open-nav-button' onClick = {() => setShowBar(true)}>
+                    <FaBars className = 'open-nav-icon' />
+                </div>
+            }
+            <CSSTransition
+                in = { showBar }
+                classNames = "navslide" 
+                timeout = { 300 }
+                nodeRef = { nodeRef }
+                unmountOnExit
+                onEnter = {() => setClicked(true)}
+                onExited = {() => setClicked(false)}
+            >
+                <div ref = { nodeRef } className = 'navbar-active'>
+                    <nav className = 'navbar' >
+                        <Link to = '/' className = 'navlink' >
+                            <FaHome className = 'navlink-icon' />
+                        </Link>
+                        <Link to = '/videos' className = 'navlink' > 
+                            <FaFilm className = 'navlink-icon' />
+                        </Link>
+                        <Link to = '/live' className = 'navlink' >
+                            <FaBroadcastTower className = 'navlink-icon' />
+                        </Link>
+                        <Link to = '/settings' className = 'navlink' >
+                            <FaCog className = 'navlink-icon' />
+                        </Link>
+                    </nav>
+                    <div className = 'close-nav-button' onClick = {() => setShowBar(false)}>
+                        <FaTimes className = 'close-nav-icon' />
                     </div>
-                    : 
-                    <div>
-                    {'Home'}
-                    </div> 
-                }
-            </Link>
-            <Link to = '/videos' className = 'navlink' onClick = {() => changeActive('videos') }> 
-                { 
-                    videosActive ? 
-                    <div>
-                        <FaFilm className = 'navicon'/> 
-                    </div>
-                    :
-                    <div>
-                    {'Videos'}
-                    </div>  
-                }
-            </Link>
-            <Link to = '/live' className = 'navlink' onClick = {() => changeActive('live') }>
-                {
-                    liveActive ? 
-                    <div>
-                        <FaBroadcastTower className = 'navicon'/> 
-                    </div>
-                    :
-                    <div>
-                    {'Live'}
-                    </div> 
-                }
-            </Link>
-            <Link to = '/settings' className = 'navlink' onClick = {() => changeActive('settings') }>
-                {
-                    settingsActive ? 
-                    <div>
-                        <FaCog className = 'navicon'/> 
-                    </div>
-                    :
-                    <div>
-                    {'Settings'}
-                    </div> 
-                }
-            </Link>
-        </nav>
+                </div>
+            </CSSTransition>
+        </div>
     )
 }

@@ -1,35 +1,103 @@
-.navbar {
-    bottom: 0;
-    height: 40px;
-    width: 100vw;
-    position: sticky;
+.navbar-container {
+    height: 100%;
+    position: absolute;
     display: flex;
-    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar-active {
+    height: 100%;
+    width: 50px;
     background-color: black;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:visited {
-    color: white;
-}
-
-.navlink {
-    width: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+}
+
+.navbar {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 15%;
+}
+
+.navlink {
+    color: white;
+    text-decoration: none;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .navlink:hover {
-    box-shadow: 0 4px 1px -1px rgb(0, 183, 255);
+    box-shadow: inset 0 100px 0 0 #D80286;
 }
 
-.navicon {
-    height: 30px;
-    width: 30px;
+.navlink-icon {
+    width: 70%;
+    height: 70%;
+}
+
+.open-nav-button {
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: ease-in 0.2s;
+}
+
+.open-nav-icon {
     color: white;
+}
+
+.open-nav-button:hover {
+    opacity: 1;
+    box-shadow: 0 0 0 1px rgb(1, 173, 1);
+}
+
+.close-nav-button {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: ease-in 0.2s;
+}
+
+.close-nav-icon {
+    color: white;
+}
+
+.close-nav-button:hover {
+    opacity: 1;
+}
+
+.navslide-enter {
+    transform: translateX(-100%);
+    transition: .2s linear;
+}
+.navslide-enter-active {
+    transform: translateX(0%);
+}
+.navslide-exit {
+    transform: translateX(0%);
+    transition: .2s linear;
+}
+.navslide-exit-active {
+    transform: translateX(-100%);
 }

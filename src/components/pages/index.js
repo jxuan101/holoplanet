@@ -1,3 +1,8 @@
+import React from 'react';
+import './index.css';
+
 export default function Home() {
-    return <h2>Home</h2>;
+    return (
+        <div className = 'fullpage-container' />
+    )
 };

@@ -1,0 +1,73 @@
+.menu-icon-button {
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: ease-in 0.2s;
+}
+
+.menu-icon-button:hover {
+    opacity: 1;
+    box-shadow: 0 0 0 1px rgb(1, 173, 1);
+}
+
+.close-menu-icon-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: ease-in 0.2s;
+}
+
+.close-menu-icon-button:hover {
+    opacity: 1;
+}
+
+.menu-icon {
+    color: white;
+}
+
+.close-menu-icon {
+    color: white;
+}
+
+.idolbar-container {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+.idolbar-active {
+    height: 100%;
+    width: 300px;
+    background-color: #3b3b3b;
+    opacity: 0.8;
+}
+
+.slide-enter {
+    transform: translateX(100%);
+    transition: .2s linear;
+}
+.slide-enter-active {
+    transform: translateX(10%);
+}
+.slide-exit {
+    transform: translateX(10%);
+    transition: .2s linear;
+}
+.slide-exit-active {
+    transform: translateX(100%);
+}
