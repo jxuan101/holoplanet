@@ -1,3 +1,9 @@
+import React from 'react';
+import './settings.css';
+
 export default function Settings() {
-    return <h2>Settings</h2>;
+    return (
+        <div className = 'settings-container'> 
+        </div>
+    );
 };

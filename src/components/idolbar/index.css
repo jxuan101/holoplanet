@@ -2,6 +2,8 @@
     margin-right: 5px;
     width: 40px;
     height: 40px;
+    position: absolute;
+    right: 0;
     background-color: black;
     display: flex;
     justify-content: center;
@@ -13,7 +15,6 @@
 
 .menu-icon-button:hover {
     opacity: 1;
-    box-shadow: 0 0 0 1px rgb(1, 173, 1);
 }
 
 .close-menu-icon-button {
@@ -44,17 +45,17 @@
 
 .idolbar-container {
     height: 100%;
-    position: absolute;
-    right: 0;
     display: flex;
     align-items: center;
 }
 
 .idolbar-active {
+    position: absolute;
+    right: 0;
     height: 100%;
     width: 300px;
-    background-color: #3b3b3b;
-    opacity: 0.8;
+    background-color: black;
+    opacity: 0.7;
 }
 
 .slide-enter {
@@ -62,10 +63,10 @@
     transition: .2s linear;
 }
 .slide-enter-active {
-    transform: translateX(10%);
+    transform: translateX(0%);
 }
 .slide-exit {
-    transform: translateX(10%);
+    transform: translateX(0%);
     transition: .2s linear;
 }
 .slide-exit-active {
